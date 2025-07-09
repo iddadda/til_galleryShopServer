@@ -26,10 +26,10 @@ public class AccountController {
         if (!StringUtils.hasLength(req.getName())
                 || !StringUtils.hasLength(req.getLoginId())
                 || !StringUtils.hasLength(req.getLoginPw())) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().build(); //state: 400
         }
         int result = accountService.join(req);
-        return ResponseEntity.ok(result);
+        return ResponseEntity.ok(result);   //state: 200
     }
 
     @PostMapping("/login")

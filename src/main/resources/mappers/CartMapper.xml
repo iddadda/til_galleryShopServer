@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.wikibook.gallery.cart.CartMapper">
+
+    <!--    장바구니 추가하기 -->
+    <insert id="save">
+        INSERT INTO carts
+        SET member_id = #{memberId},
+        item_id = #{itemId}
+    </insert>
+    <!-- 장바구니 목록 보기 -->
+    <select id="findAllWithItemByMemberId">
+        SELECT b.id, a.name, a.price, a.img_path, a.discount_per
+        FROM items a JOIN carts b
+        ON a.id = b.item_id
+        WHERE b.member_id = #{memberId}
+    </select>
+
+    <!--    장바구니 상품 삭제 -->
+    <delete id="deleteByMemberIdAndItemId">
+        DELETE FROM carts
+        WHERE member_id = #{memberId} AND item_id = #{itemId}
+    </delete>
+
+
+</mapper>

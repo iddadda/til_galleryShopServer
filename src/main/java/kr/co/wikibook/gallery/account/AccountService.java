@@ -30,8 +30,6 @@ public class AccountService {
         if (res == null || !BCrypt.checkpw(req.getLoginPw(), res.getLoginPw())) {
             return null;
         }
-
-
         return res;
     }
 }
