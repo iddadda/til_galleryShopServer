@@ -10,7 +10,7 @@
     </insert>
     <!-- 장바구니 목록 보기 -->
     <select id="findAllWithItemByMemberId">
-        SELECT b.id, a.name, a.price, a.img_path, a.discount_per
+        SELECT b.id, b.item_id, a.name, a.price, a.img_path, a.discount_per
         FROM items a JOIN carts b
         ON a.id = b.item_id
         WHERE b.member_id = #{memberId}

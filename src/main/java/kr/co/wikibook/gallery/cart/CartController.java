@@ -20,6 +20,7 @@ import java.util.List;
 public class CartController {
     private final CartService cartService;
 
+//    장바구니 추가
     @PostMapping
     public ResponseEntity<?> save(HttpServletRequest httpReq, @RequestBody CartPostReq req) {
         log.info("req: {}", req);
@@ -29,6 +30,7 @@ public class CartController {
         return ResponseEntity.ok(result);
     }
 
+//    상품 목록 조회
     @GetMapping
     public ResponseEntity<?> getCart(HttpServletRequest httpReq) {
         int logginedMemberId = (int) HttpUtils.getSessionValue(httpReq, AccountConstants.MEMBER_ID_NAME);
@@ -44,6 +46,7 @@ public class CartController {
 //        return ResponseEntity.ok(result);
 //    }
 
+//    장바구니 상품 삭제
     @DeleteMapping("/{cartId}")
     public ResponseEntity<?> deleteMemberItem(HttpServletRequest httpReq, @PathVariable int cartId) {
         int logginedMemberId = (int) HttpUtils.getSessionValue(httpReq, AccountConstants.MEMBER_ID_NAME);
@@ -53,6 +56,7 @@ public class CartController {
         return ResponseEntity.ok(result);
     }
 
+//    장바구니 전체 삭제
     @DeleteMapping
     public ResponseEntity<?> deleteItem(HttpServletRequest httpReq) {
         int logginedMemberId = (int) HttpUtils.getSessionValue(httpReq, AccountConstants.MEMBER_ID_NAME);
