@@ -17,10 +17,15 @@
     </select>
 
     <!--    장바구니 상품 삭제 -->
-    <delete id="deleteByMemberIdAndItemId">
+    <delete id="deleteByCartIdAndMemberId">
         DELETE FROM carts
-        WHERE member_id = #{memberId} AND item_id = #{itemId}
+        WHERE id = #{cartId} AND member_id = #{memberId}
     </delete>
 
+<!--    장바구니 전체 지우기 -->
+    <delete id="deleteByMemberId">
+        DELETE FROM carts
+        WHERE member_id = #{memberID}
+    </delete>
 
 </mapper>
