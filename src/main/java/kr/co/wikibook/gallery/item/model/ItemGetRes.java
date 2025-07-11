@@ -1,8 +1,10 @@
 package kr.co.wikibook.gallery.item.model;
 
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class ItemGetRes {
     private int id;
     private String name;

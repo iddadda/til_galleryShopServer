@@ -4,6 +4,7 @@ package kr.co.wikibook.gallery.cart;
 import kr.co.wikibook.gallery.cart.model.CartDeleteReq;
 import kr.co.wikibook.gallery.cart.model.CartGetRes;
 import kr.co.wikibook.gallery.cart.model.CartPostReq;
+import kr.co.wikibook.gallery.order.model.OrderGetRes;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface CartMapper {
     int deleteByCartIdAndMemberId(CartDeleteReq req);
 
     int deleteByMemberId(int memberId);
+
+
 }

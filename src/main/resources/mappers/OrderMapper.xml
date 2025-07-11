@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.wikibook.gallery.order.OrderMapper">
-
-    <insert id="save">
+<!--생성된 키 사용 true, 키값을 담을 속성명을 keyProperty에 지정-->
+    <insert id="save" useGeneratedKeys="true" keyProperty="orderId">
         INSERT INTO orders
         SET member_id = #{memberId}
         , name = #{name}
@@ -13,4 +13,12 @@
             , card_number = #{cardNumber}
         </if>
     </insert>
+
+<!--    주문 목록 가져오기-->
+    <select id="findAllByMemberIdOrderByIdDesc">
+        SELECT id, name, payment, amount, created
+        FROM orders
+        WHERE member_id = #{memberId}
+        ORDER BY id DESC
+    </select>
 </mapper>

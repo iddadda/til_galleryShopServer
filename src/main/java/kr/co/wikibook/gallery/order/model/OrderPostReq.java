@@ -11,6 +11,6 @@ public class OrderPostReq {
     private String name;
     private String address;
     private String payment;
-    private String cardNumber;
+    private String cardNumber; //    카드 결제가 아니라면 빈 문자열이 들어옴
     private List<Integer> itemIds;
 }
